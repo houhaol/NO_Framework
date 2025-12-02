@@ -7,3 +7,6 @@
 [submodule "Physiology"]
 	path = Physiology
 	url = https://github.com/houhaol/Physiological_Saliency_Detection.git
+[submodule "Trajectory"]
+	path = Trajectory
+	url = https://github.com/houhaol/VINS-Fusion-GoPro.git
