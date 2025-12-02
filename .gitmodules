@@ -1,3 +1,6 @@
 [submodule "Walkway"]
 	path = Walkway
 	url = https://github.com/houhaol/PersonStepMat.git
+[submodule "Gaze"]
+	path = Gaze
+	url = https://github.com/houhaol/EyeTrackingSam.git
