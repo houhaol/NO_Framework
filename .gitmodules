@@ -4,3 +4,6 @@
 [submodule "Gaze"]
 	path = Gaze
 	url = https://github.com/houhaol/EyeTrackingSam.git
+[submodule "Physiology"]
+	path = Physiology
+	url = https://github.com/houhaol/Physiological_Saliency_Detection.git
