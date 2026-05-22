@@ -105,6 +105,7 @@ If you use this framework in your research, please cite:
 ```bibtex
 @article{BEFIT_NO_Framework_Study,
   title={An Automated Multimodal Framework for Capturing Dynamic and Micro-scale Interactions between the Built Environment and Vulnerable Older Adults},
+  autho
   journal={Building and Environment},
   year={2026}
 }
@@ -112,4 +113,4 @@ If you use this framework in your research, please cite:
 
 ## Related Work
 
-This framework was developed as part of the **BE-FIT (Built Environment in Falls and ArthrITis Study)** study, investigating how environmental factors influence mobility and independence in older adults with knee OA or fall history.
+This framework was developed as part of the **BE-FIT (Built Environment in Falls and ArthrITis Study)** study, investigating how BE factors influence mobility and independence in older adults with knee OA or fall history.
