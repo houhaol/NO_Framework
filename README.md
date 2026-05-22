@@ -13,6 +13,8 @@ The framework processes four primary data streams:
 
 This study has been accepted by Building and Environment. Read the full paper here: https://doi.org/10.1016/j.buildenv.2026.114754
 
+Each module can be run independently. Please refer to the respective README files in each subdirectory for detailed usage instructions.
+
 ## Repository Structure
 
 ```
@@ -93,11 +95,6 @@ Processes and analyzes multimodal physiological signals from Empatica including 
 [📖 See detailed documentation](./Physiology/README.md)
 
 
-### Individual Module Usage
-
-Each module can be run independently. Please refer to the respective README files in each subdirectory for detailed usage instructions.
-
-
 ## Citation
 
 If you use this framework in your research, please cite:
@@ -105,7 +102,7 @@ If you use this framework in your research, please cite:
 ```bibtex
 @article{BEFIT_NO_Framework_Study,
   title={An Automated Multimodal Framework for Capturing Dynamic and Micro-scale Interactions between the Built Environment and Vulnerable Older Adults},
-  autho
+  author={Houhao Liang, Azrin Jamaluddin, Kresimir Friganovic, Martin Raubal, Christoph Hölscher, Navrag B. Singh, Panos Mavros},
   journal={Building and Environment},
   year={2026}
 }
