@@ -4,27 +4,14 @@
 
 ## Overview
 
-This repository contains the implementation of an automated multimodal framework designed to capture and analyze dynamic, micro-scale interactions between the built environment and vulnerable older adults. The framework integrates multiple data streams including trajectory tracking, environmental attributes, gaze patterns, and physiological signals to provide comprehensive insights into how older adults interact with their physical surroundings.
-
-### Key Features
-
+This repository provides the open-source computational pipelines for our framework designed to capture and analyze dynamic, micro-scale interactions between vulnerable older adults and the built environment (BE).
+The framework processes four primary data streams:
 - **Real-time Trajectory Tracking**: SLAM-based localization and mapping for continuous spatial positioning
-- **Walkway Analysis**: Automated identification and attribute extraction of environmental features
+- **Walkway Analysis**: Automated identification and attribute extraction of walkway materials and width
 - **Gaze-based Object Recognition**: Fixation-guided analysis of visual attention and environmental elements
-- **Physiological Monitoring**: Multi-signal processing including heart rate variability, electrodermal activity, and gait parameters
+- **Physiological Monitoring**: Multi-signal processing including heart rate variability and electrodermal activity
 
-## Framework Architecture
-
-The framework consists of four main integrated modules:
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Multimodal Framework                      │
-├─────────────────┬─────────────────┬─────────────────────────┤
-│   Trajectory    │    Walkway      │   Gaze & Physiology     │
-│   (SLAM)        │   (Vision)      │   (Sensors)             │
-└─────────────────┴─────────────────┴─────────────────────────┘
-```
+This study has been accepted by Building and Environment. Read the full paper here: https://doi.org/10.1016/j.buildenv.2026.114754
 
 ## Repository Structure
 
@@ -41,20 +28,11 @@ NO_Framework/
 
 ### 1. SLAM Trajectory (`/Trajectory`)
 
-Implements real-time visual-inertial SLAM for accurate 6-DOF pose estimation and trajectory tracking of participants in the built environment.
+Implements real-time visual-inertial SLAM for trajectory tracking of participants in the BE.
 
 **Features:**
 - Visual-inertial odometry fusion
-- Loop closure detection
-- Global trajectory optimization
-- GoPro camera calibration and setup
-
-**Key Components:**
-- `vins_estimator/`: Core SLAM estimation algorithms
-- `loop_fusion/`: Loop closure and global optimization
-- `global_fusion/`: Multi-sensor fusion framework
-- `camera_models/`: Camera calibration models
-- `gopro_calibration_vins_setup/`: GoPro-specific configurations
+- GoPro 13 camera calibration and setup
 
 [📖 See detailed documentation](./Trajectory/README.md)
 
@@ -62,19 +40,16 @@ Implements real-time visual-inertial SLAM for accurate 6-DOF pose estimation and
 
 ### 2. Walkway Identification and Attribute Analysis (`/Walkway`)
 
-Automatically identifies and analyzes environmental attributes including walkway surfaces, materials, obstacles, and accessibility features.
+Automatically identifies and analyzes walkway attributes including walkway surfaces materials and width.
 
 **Features:**
 - Material classification using deep learning
-- Pose estimation for obstacle detection
-- Walkway segmentation and characterization
-- Environmental hazard identification
+- Material dataset for walkway surfaces
+- Walkway width estimation
 
 **Key Components:**
 - `scripts/`: Processing pipelines for walkway analysis
 - `materials/`: Material classification datasets and models
-- `openpose-docker/`: Human pose estimation integration
-- `utilis/`: Utility functions for data processing
 
 [📖 See detailed documentation](./Walkway/README.md)
 
@@ -87,14 +62,13 @@ Analyzes eye-tracking data to identify fixation points and recognize objects of 
 **Features:**
 - Fixation detection and classification
 - SAM-based object segmentation at fixation points
-- CLIP-based object recognition
 - Temporal gaze pattern analysis
+- Quantify the attention allocation
 
 **Key Components:**
 - `scripts/`: Main inference and processing scripts
 - `config/`: Configuration files for models and parameters
 - `eval/`: Evaluation metrics and analysis tools
-- `alternative_infer_scripts/`: Alternative processing pipelines
 
 [📖 See detailed documentation](./Gaze/README.md)
 
@@ -102,61 +76,21 @@ Analyzes eye-tracking data to identify fixation points and recognize objects of 
 
 ### 4. Physiological Signal Processing (`/Physiology`)
 
-Processes and analyzes multimodal physiological signals including heart rate variability (HRV), electrodermal activity (EDA), gait parameters, and their synchronization with spatial and environmental data.
+Processes and analyzes multimodal physiological signals from Empatica including heart rate variability (HRV), electrodermal activity (EDA).
 
 **Features:**
 - Heart rate variability analysis
 - Electrodermal activity processing
-- Gait parameter extraction
-- Multi-signal temporal alignment
-- Cross-modal data fusion
+- Visualizing tool to inspect the dual-perspective visual data and physiological data
 
 **Key Components:**
 - `hrv/`: Heart rate variability analysis
 - `eda/`: Electrodermal activity processing
-- `gait/`: Gait parameter extraction and analysis
 - `gaze/`: Gaze-physiology integration
-- `traj/`: Trajectory-physiology synchronization
-- `walkway/`: Environment-physiology correlation
 - `utils/`: Common processing utilities
 - `segments_inspect_vis_tools/`: Visualization tools
 
 [📖 See detailed documentation](./Physiology/README.md)
-
----
-
-## Installation
-
-### Prerequisites
-
-- Ubuntu 18.04/20.04 or later
-- Python 3.8+
-- CUDA 11.0+ (for GPU acceleration)
-- Docker (optional, for containerized deployment)
-
-### Quick Start
-
-1. Clone the repository with submodules:
-```bash
-git clone --recursive https://github.com/yourusername/NO_Framework.git
-cd NO_Framework
-```
-
-2. Set up each module (refer to individual module READMEs for detailed instructions):
-
-```bash
-# Trajectory module
-cd Trajectory && ./setup.sh && cd ..
-
-# Walkway module
-cd Walkway && pip install -r requirements.txt && cd ..
-
-# Gaze module
-cd Gaze && pip install -r requirements.txt && cd ..
-
-# Physiology module
-cd Physiology && pip install -r requirements.txt && cd ..
-```
 
 
 ### Individual Module Usage
@@ -169,16 +103,13 @@ Each module can be run independently. Please refer to the respective README file
 If you use this framework in your research, please cite:
 
 ```bibtex
-@article{yourname2025framework,
+@article{BEFIT_NO_Framework_Study,
   title={An Automated Multimodal Framework for Capturing Dynamic and Micro-scale Interactions between the Built Environment and Vulnerable Older Adults},
-  author={Your Name and Co-authors},
-  journal={Journal Name},
-  year={2025}
+  journal={Building and Environment},
+  year={2026}
 }
 ```
 
 ## Related Work
 
 This framework was developed as part of the **BE-FIT (Built Environment in Falls and ArthrITis Study)** study, investigating how environmental factors influence mobility and independence in older adults with knee OA or fall history.
-
-**Status**: 🚧 Active Development | Last Updated: December 2025
